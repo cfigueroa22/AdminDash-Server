@@ -12,14 +12,7 @@ app.use(cookieParser());
 app.use(express.json());
 // app.use(express.static("public"));
 app.use(express.static("build"));
-
-app.use(
-  cors({
-    origin: ["http://localhost:3000"],
-    methods: ["POST", "GET", "PUTS", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 const db = mysql.createConnection({
   host: process.env.REACT_APP_MYSQL_HOST,
