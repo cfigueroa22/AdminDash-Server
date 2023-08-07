@@ -26,10 +26,10 @@ app.use((req, res, next) => {
 app.use(cors());
 
 const connection = mysql.createConnection({
-  host: `${process.env.REACT_APP_SQL_HOST}`,
-  user: `${process.env.REACT_APP_SQL_USER}`,
-  password: `${process.env.REACT_APP_SQL_PASSWORD}`,
-  database: `${process.env.REACT_APP_SQL_DATABASE}`,
+  host: process.env.REACT_APP_SQL_HOST,
+  user: process.env.REACT_APP_SQL_USER,
+  password: process.env.REACT_APP_SQL_PASSWORD,
+  database: process.env.REACT_APP_SQL_DATABASE,
 });
 
 connection.connect((err) => {
@@ -411,7 +411,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "build/index.html"));
 });
 
-const port = process.env.REACT_APP_MYSQL_PORT || 8081;
+const port = process.env.REACT_APP_PORT || 8081;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
