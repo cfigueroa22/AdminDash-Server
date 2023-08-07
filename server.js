@@ -6,7 +6,7 @@ const bcrypt = require("bcryptjs");
 const multer = require("multer");
 const path = require("path");
 const jwt = require("jsonwebtoken");
-const connection = require("./config.js");
+require("dotenv").config();
 
 const app = express();
 app.use(cookieParser());
@@ -25,12 +25,12 @@ app.use((req, res, next) => {
 });
 app.use(cors());
 
-// const connection = mysql.createConnection({
-//   host: process.env.REACT_APP_MYSQL_HOST,
-//   user: process.env.REACT_APP_MYSQL_USER,
-//   password: process.env.REACT_APP_MYSQL_PASSWORD,
-//   database: process.env.REACT_APP_MYSQL_DATABASE,
-// });
+const connection = mysql.createConnection({
+  host: process.env.REACT_APP_MYSQL_HOST,
+  user: process.env.REACT_APP_MYSQL_USER,
+  password: process.env.REACT_APP_MYSQL_PASSWORD,
+  database: process.env.REACT_APP_MYSQL_DATABASE,
+});
 
 connection.connect((err) => {
   if (err) {
