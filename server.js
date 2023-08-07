@@ -26,10 +26,10 @@ app.use((req, res, next) => {
 app.use(cors());
 
 const connection = mysql.createConnection({
-  host: process.env.REACT_APP_MYSQL_HOST,
-  user: process.env.REACT_APP_MYSQL_USER,
-  password: process.env.REACT_APP_MYSQL_PASSWORD,
-  database: process.env.REACT_APP_MYSQL_DATABASE,
+  host: `${process.env.REACT_APP_SQL_HOST}`,
+  user: `${process.env.REACT_APP_SQL_USER}`,
+  password: `${process.env.REACT_APP_SQL_PASSWORD}`,
+  database: `${process.env.REACT_APP_SQL_DATABASE}`,
 });
 
 connection.connect((err) => {
