@@ -16,7 +16,7 @@ app.use(express.static("build"));
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://admindash-server-production.up.railway.app"
+    "https://unrivaled-tapioca-a02bd0.netlify.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
