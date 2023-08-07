@@ -12,7 +12,14 @@ app.use(cookieParser());
 app.use(express.json());
 // app.use(express.static("public"));
 app.use(express.static("build"));
-app.use(cors());
+
+app.use(
+  cors({
+    origin: ["'https://admindash-server-production.up.railway.app'"],
+    methods: ["POST", "GET", "PUTS", "DELETE"],
+    credentials: true,
+  })
+);
 
 const db = mysql.createConnection({
   host: process.env.REACT_APP_MYSQL_HOST,
