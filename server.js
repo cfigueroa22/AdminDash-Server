@@ -77,31 +77,31 @@ const upload = multer({
 //   }
 // };
 
-app.get("/dashboard", verifyUser, (req, res) => {
+app.get("/dashboard", (req, res) => {
   return res.json({ Status: "Success" });
 });
 
-//! VERIFIES LOGIN INFO MATCHES THE DB
-app.post("/login", (req, res) => {
-  const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
-  db.query(sql, [req.body.email, req.body.password], (err, result) => {
-    if (err) return res.json({ Status: "Error", Error: "Error running query" });
-    if (result.length > 0) {
-      const id = result[0].id;
-      const token = jwt.sign({ id }, "jwt-secret-key", { expiresIn: "1d" });
-      res.cookie("token", token);
-      return res.json({ Status: "Success" });
-    } else {
-      return res.json({ Status: "Error", Error: "Wrong email or password" });
-    }
-  });
-});
+// //! VERIFIES LOGIN INFO MATCHES THE DB
+// app.post("/login", (req, res) => {
+//   const sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+//   db.query(sql, [req.body.email, req.body.password], (err, result) => {
+//     if (err) return res.json({ Status: "Error", Error: "Error running query" });
+//     if (result.length > 0) {
+//       const id = result[0].id;
+//       const token = jwt.sign({ id }, "jwt-secret-key", { expiresIn: "1d" });
+//       res.cookie("token", token);
+//       return res.json({ Status: "Success" });
+//     } else {
+//       return res.json({ Status: "Error", Error: "Wrong email or password" });
+//     }
+//   });
+// });
 
-//! CLEAR COOKIES TO LOGOUT USER
-app.get("/logout", (req, res) => {
-  res.clearCookie("token");
-  return res.json({ Status: "Success" });
-});
+// //! CLEAR COOKIES TO LOGOUT USER
+// app.get("/logout", (req, res) => {
+//   res.clearCookie("token");
+//   return res.json({ Status: "Success" });
+// });
 
 //! GET EMPLOYEES FROM DB
 app.get("/getEmployees", (req, res) => {

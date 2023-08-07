@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.e1c018ee.css",
-    "main.js": "/static/js/main.8d97e98d.js",
+    "main.js": "/static/js/main.754fda31.js",
     "static/media/hr-logo.svg": "/static/media/hr-logo.e46ae8c0de16744c39cb8304e3bc621e.svg",
     "index.html": "/index.html",
     "main.e1c018ee.css.map": "/static/css/main.e1c018ee.css.map",
-    "main.8d97e98d.js.map": "/static/js/main.8d97e98d.js.map"
+    "main.754fda31.js.map": "/static/js/main.754fda31.js.map"
   },
   "entrypoints": [
     "static/css/main.e1c018ee.css",
-    "static/js/main.8d97e98d.js"
+    "static/js/main.754fda31.js"
   ]
 }
