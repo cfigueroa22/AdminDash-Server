@@ -10,7 +10,8 @@ const jwt = require("jsonwebtoken");
 const app = express();
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.static("public"));
+// app.use(express.static("public"));
+app.use(express.static("build"));
 
 app.use(
   cors({
