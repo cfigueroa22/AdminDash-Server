@@ -64,18 +64,18 @@ const upload = multer({
   storage: storage,
 });
 
-//! VERIFIES USERS LOGGING IN
-const verifyUser = (req, res, next) => {
-  const token = req.cookies.token;
-  if (!token) {
-    return res.json({ Error: "You are not authorized" });
-  } else {
-    jwt.verify(token, "jwt-secret-key", (err, decoded) => {
-      if (err) return res.json({ Error: "Wrong token" });
-      next();
-    });
-  }
-};
+// //! VERIFIES USERS LOGGING IN
+// const verifyUser = (req, res, next) => {
+//   const token = req.cookies.token;
+//   if (!token) {
+//     return res.json({ Error: "You are not authorized" });
+//   } else {
+//     jwt.verify(token, "jwt-secret-key", (err, decoded) => {
+//       if (err) return res.json({ Error: "Wrong token" });
+//       next();
+//     });
+//   }
+// };
 
 app.get("/dashboard", verifyUser, (req, res) => {
   return res.json({ Status: "Success" });
